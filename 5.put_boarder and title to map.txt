@@ -1,0 +1,18 @@
+# Add code here, before creating the Basemap instance.
+# import pyplot from matplotlib
+import matplotlib.pyplot as plt
+
+
+fig, ax = plt.subplots(figsize=(15,20))
+
+# give a name to the plot
+# or plt.title('Scaled Up Earth With Coastlines')
+ax.set_title("Scaled Up Earth With Coastlines")
+
+m = Basemap(projection='merc', llcrnrlat=-80, urcrnrlat=80, llcrnrlon=-180, urcrnrlon=180)
+longitudes = airports["longitude"].tolist()
+latitudes = airports["latitude"].tolist()
+x, y = m(longitudes, latitudes)
+m.scatter(x, y, s=1)
+m.drawcoastlines()
+plt.show()

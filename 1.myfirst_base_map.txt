@@ -1,0 +1,30 @@
+#Here's what the general workflow will look like when working with two-dimensional maps:
+
+#Create a new basemap instance with the specific map projection we want to use and how much of the map we want included.
+#Convert spherical coordinates to Cartesian coordinates using the basemap instance.
+#Use the matplotlib and basemap methods to customize the map.
+#Display the map.
+#Let's focus on the first step and create a new basemap instance. To create a new instance of the basemap class, we call the basemap constructor and pass in values for the required parameters:
+
+#projection: the map projection.
+#llcrnrlat: latitude of lower left hand corner of the desired map domain
+#urcrnrlat: latitude of upper right hand corner of the desired map domain
+#llcrnrlon: longitude of lower left hand corner of the desired map domain
+#urcrnrlon: longitude of upper right hand corner of the desired map domain
+#Instructions
+
+#Create a new basemap instance with the following parameters:
+
+#projection: "merc"
+#llcrnrlat: -80 degrees
+#urcrnrlat: 80 degrees
+#llcrnrlon: -180 degrees
+#urcrnrlon: 180 degrees
+#Assign the instance to the new variable m.
+
+
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.basemap import Basemap
+
+m = Basemap(projection='merc',llcrnrlat = -80 ,urcrnrlat= 80 ,llcrnrlon= -180 ,urcrnrlon = 180)

@@ -1,0 +1,31 @@
+We use the basemap.drawgreatcircle() method to display a great circle between 2 points. The basemap.drawgreatcircle() method requires four parameters in the following order:
+
+lon1 - longitude of the starting point.
+lat1 - latitude of the starting point.
+lon2 - longitude of the ending point.
+lat2 - latitude of the ending point.
+The following code generates a great circle for the first three routes in the dataframe:
+
+
+m.drawgreatcircle(39.956589, 43.449928, 49.278728, 55.606186)
+m.drawgreatcircle(48.006278, 46.283333, 49.278728, 55.606186)
+m.drawgreatcircle(39.956589, 43.449928, 43.081889 , 44.225072)
+Unfortunately, basemap struggles to create great circles for routes that have an absolute difference of larger than 180 degrees for either the latitude or longitude values. This is because the basemap.drawgreatcircle() method isn't able to create great circles properly when they go outside of the map boundaries. This is mentioned briefly in the documentation for the method:
+
+Note: Cannot handle situations in which the great circle intersects the edge of the map projection domain, and then re-enters the domain.
+
+Instructions
+
+Write a function, named create_great_circles() that draws a great circle for each route that has an absolute difference in the latitude and longitude values less than 180. This function should:
+
+Accept a dataframe as the sole parameter
+Iterate over the rows in the dataframe using DataFrame.iterrows()
+For each row:
+Draw a great circle using the four geographic coordinates only if:
+The absolute difference between the latitude values (end_lat and start_lat) is less than 180.
+If the absolute difference between the longitude values (end_lon and start_lon) is less than 180.
+Create a filtered dataframe containing just the routes that start at the DFW airport.
+
+Select only the rows in geo_routes where the value for the source column equals "DFW".
+Assign the resulting dataframe to dfw.
+Pass dfw into create_great_circles() and display the plot using the pyplot.show() function.

@@ -1,0 +1,25 @@
+# Create a new basemap instance with the specific map projection we want to use and how much of the map we want included
+m = Basemap(projection='merc', llcrnrlat=-80, urcrnrlat=80, llcrnrlon=-180, urcrnrlon=180)
+
+# Convert spherical coordinates to Cartesian coordinates using the basemap instance.display them on a two-dimensional map
+longitudes = airports["longitude"].tolist()
+latitudes = airports["latitude"].tolist()
+x, y = m(longitudes, latitudes)
+
+# create a scatter to plot coordinates on a map
+# For example, we can customize the size of each marker using the s parameter:
+
+# method -----> m.scatter(x,y)
+# Large markers.
+#m.scatter(x,y,s=10)
+# Smaller markers.
+#m.scatter(x,y,s=5)
+
+m.scatter(x,y,s = 1)
+
+# You'll notice that the outlines of the coasts for each continent are missing from the map above. We can display the coast lines using the basemap.drawcoastlines() method.
+
+m.drawcoastlines()
+
+# show map 
+plt.show()
